@@ -13,67 +13,9 @@ import {
   PawPrint,
   Flag,
 } from "lucide-react";
+import { feedItems, derbyEvents } from "@/lib/data/mock-data";
 
-/* ── Mock data for demo ───────────────────────────────────── */
-
-const feedItems = [
-  {
-    category: "race" as const,
-    title: "Tambalang Race Day",
-    date: "15 Jun 2026",
-    description: "8 races · Mixed Breed & Thoroughbred · 1000M – 1800M",
-    href: "/race-day",
-  },
-  {
-    category: "derby" as const,
-    title: "RSTC × Umamusume: Kaamatan Cup",
-    date: "7 Jun 2026",
-    description: "Harvest Festival Cup — cosplayers, starter gate racing & real horse racing!",
-    href: "/derby",
-  },
-  {
-    category: "race" as const,
-    title: "Pony Racing Sunday",
-    date: "29 Jun 2026",
-    description: "6 races · Pony Racing · 1100M – 1600M",
-    href: "/race-day",
-  },
-  {
-    category: "club" as const,
-    title: "Heritage Walk — 118 Years of Racing",
-    date: "Ongoing",
-    description: "From the Jesselton Turf Club to the Royal Sabah Turf Club — discover our story since 1908.",
-    href: "/the-club",
-  },
-  {
-    category: "race" as const,
-    title: "Thoroughbred Meet",
-    date: "13 Jul 2026",
-    description: "8 races · Thoroughbred · 1000M – 1800M",
-    href: "/race-day",
-  },
-  {
-    category: "betting" as const,
-    title: "New to Betting? Start Here",
-    date: "Guide",
-    description: "Learn how commingling, pools, and race betting work across Malaysian and international turf clubs.",
-    href: "/betting-guide",
-  },
-  {
-    category: "own" as const,
-    title: "Stallion Registry Updated",
-    date: "May 2026",
-    description: "Browse the latest stallion entries and breeding regulations for the 2026 season.",
-    href: "/own-and-breed",
-  },
-  {
-    category: "results" as const,
-    title: "Race Results — 24 May 2026",
-    date: "24 May 2026",
-    description: "Borneo Star (Race 2) · Tambalang Dream (Race 4) — full results available.",
-    href: "/race-day",
-  },
-];
+/* ── Quick Access ──────────────────────────────────────────── */
 
 const quickAccessTiles = [
   {
@@ -125,18 +67,12 @@ const categoryConfig = {
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.06 },
-  },
+  visible: { transition: { staggerChildren: 0.06 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 /* ── Components ────────────────────────────────────────────── */
@@ -158,7 +94,7 @@ export function WhatsNewFeed() {
             const config = categoryConfig[item.category];
             const Icon = config.icon;
             return (
-              <motion.div key={item.title} variants={itemVariants}>
+              <motion.div key={item.id} variants={itemVariants}>
                 <Link
                   href={item.href}
                   className={`content-card block bg-white rounded-lg shadow-sm ${config.border} p-4 sm:p-5 group`}
@@ -229,6 +165,9 @@ export function QuickAccessSection() {
 }
 
 export function UmamusumeEventBanner() {
+  const event = derbyEvents[0]; // Use the first upcoming event
+  if (!event) return null;
+
   return (
     <section className="py-8 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
@@ -250,15 +189,15 @@ export function UmamusumeEventBanner() {
                 </span>
               </div>
               <h3 className="text-white font-black text-lg sm:text-xl tracking-tight">
-                RSTC × Umamusume Pretty Derby
+                {event.title}
               </h3>
               <p className="text-white/80 text-xs sm:text-sm mt-1 font-medium">
-                Kaamatan Cup · 7 June 2026 · Tambalang Racecourse
+                {event.subtitle} · {event.displayDate} · {event.venue.split(",")[0]}
               </p>
             </div>
             <div className="p-4 sm:p-5 flex items-center justify-between">
               <p className="text-gray-600 text-xs sm:text-sm">
-                Cosplayer starter gate racing · Photo ops · Real horse racing · Special guest kemo★kyun
+                {event.activities.slice(0, 3).join(" · ")}
               </p>
               <ChevronRight className="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform shrink-0" />
             </div>

@@ -19,5 +19,12 @@
   ],
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "rstc-db",
+      "database_id": "PLACEHOLDER_CREATE_D1_DATABASE_FIRST"
+    }
+  ]
 }
