@@ -62,4 +62,5 @@ mini-services/
 examples/
 db/
 Caddyfile
-worklog.mdupload/
+worklog.md
+upload/
