@@ -3,9 +3,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "Royal Sabah Turf Club - Home of Bornean Racing",
+  title: "RSTC — Home of Bornean Racing",
   description:
-    "Official website of the Royal Sabah Turf Club. Horse racing, breeding, and the Sport of Kings since 1908 in the Land Below the Wind.",
+    "Unofficial fan community hub for the Royal Sabah Turf Club. Race data, horse tracking, and the Sport of Kings since 1908 in the Land Below the Wind.",
   keywords: [
     "RSTC",
     "Royal Sabah Turf Club",
@@ -17,23 +17,16 @@ export const metadata: Metadata = {
     "Borneo racing",
     "thoroughbred",
   ],
-  authors: [{ name: "Royal Sabah Turf Club" }],
+  authors: [{ name: "RSTC Fan Community" }],
   icons: {
-    icon: "/logo.svg",
+    icon: "/rstc-logo.png",
   },
   openGraph: {
-    title: "Royal Sabah Turf Club - Home of Bornean Racing",
+    title: "RSTC — Home of Bornean Racing",
     description:
-      "Official website of the Royal Sabah Turf Club. The Sport of Kings since 1908.",
-    url: "https://www.royalsabahturfclub.com.my",
-    siteName: "Royal Sabah Turf Club",
+      "Unofficial fan community hub for the Royal Sabah Turf Club. The Sport of Kings since 1908.",
+    siteName: "RSTC",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Royal Sabah Turf Club - Home of Bornean Racing",
-    description:
-      "Official website of the Royal Sabah Turf Club. The Sport of Kings since 1908.",
   },
 };
 
@@ -44,6 +37,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased bg-background text-foreground font-sans">
         {children}
         <Toaster />

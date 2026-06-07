@@ -41,80 +41,40 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  /* Custom RSTC brand colors */
-  --color-rstc-blue: #0052CC;
-  --color-rstc-navy: #1E3A8A;
-  --color-rstc-accent: #3B82F6;
-  --color-rstc-dark: #111827;
-  --color-rstc-light-gray: #D1D5DB;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #ffffff;
-  --foreground: #374151;
+  --background: #f8fafc;
+  --foreground: #1e293b;
   --card: #ffffff;
-  --card-foreground: #374151;
+  --card-foreground: #1e293b;
   --popover: #ffffff;
-  --popover-foreground: #374151;
-  --primary: #0052CC;
+  --popover-foreground: #1e293b;
+  --primary: #3B82F6;
   --primary-foreground: #ffffff;
-  --secondary: #EFF6FF;
-  --secondary-foreground: #1E3A8A;
-  --muted: #F3F4F6;
-  --muted-foreground: #6B7280;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
   --accent: #3B82F6;
   --accent-foreground: #ffffff;
   --destructive: #EF4444;
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #3B82F6;
-  --chart-1: #0052CC;
-  --chart-2: #1E3A8A;
-  --chart-3: #3B82F6;
-  --chart-4: #10B981;
-  --chart-5: #F59E0B;
-  --sidebar: #F9FAFB;
-  --sidebar-foreground: #374151;
-  --sidebar-primary: #0052CC;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #EFF6FF;
-  --sidebar-accent-foreground: #1E3A8A;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #3B82F6;
-}
-
-.dark {
-  --background: #111827;
-  --foreground: #F9FAFB;
-  --card: #1F2937;
-  --card-foreground: #F9FAFB;
-  --popover: #1F2937;
-  --popover-foreground: #F9FAFB;
-  --primary: #3B82F6;
-  --primary-foreground: #ffffff;
-  --secondary: #1E3A8A;
-  --secondary-foreground: #F9FAFB;
-  --muted: #374151;
-  --muted-foreground: #9CA3AF;
-  --accent: #1E3A8A;
-  --accent-foreground: #F9FAFB;
-  --destructive: #EF4444;
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.15);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: #3B82F6;
   --chart-1: #3B82F6;
   --chart-2: #10B981;
   --chart-3: #F59E0B;
   --chart-4: #8B5CF6;
   --chart-5: #EC4899;
-  --sidebar: #1F2937;
-  --sidebar-foreground: #F9FAFB;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #1e293b;
   --sidebar-primary: #3B82F6;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1E3A8A;
-  --sidebar-accent-foreground: #F9FAFB;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-accent: #eff6ff;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: #e2e8f0;
   --sidebar-ring: #3B82F6;
 }
 
@@ -124,10 +84,94 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* MURA-style fixed background */
+    background-image: url('/hero-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
-/* Custom scrollbar styling */
+/* ── MURA-Style Custom Classes ───────────────────────────── */
+
+/* Skewed section header banners */
+.header-skew {
+  position: relative;
+  background-color: #3B82F6;
+  color: white;
+  padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1.5rem;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  margin-left: -1rem;
+}
+
+.header-skew-green {
+  background-color: #10B981;
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+  margin-left: 0;
+  padding-left: 1.5rem;
+}
+
+.header-skew-amber {
+  background-color: #F59E0B;
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+  margin-left: 0;
+  padding-left: 1.5rem;
+}
+
+.header-skew-violet {
+  background-color: #8B5CF6;
+}
+
+.header-skew-pink {
+  background-color: #EC4899;
+}
+
+.header-skew-red {
+  background-color: #EF4444;
+}
+
+/* Content card hover effect */
+.content-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* News/item left border accent */
+.news-item {
+  border-left: 4px solid #F59E0B;
+}
+
+/* Fade-in on scroll animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar for mobile nav */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -135,9 +179,21 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 3px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Glass overlay for readability over background image */
+.glass-overlay {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hero section */
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
 }
