@@ -78,13 +78,23 @@
   --sidebar-ring: #3B82F6;
 }
 
+/* ── RSTC Section Colours ──────────────────────────────── */
+:root {
+  --rstc-blue: #3B82F6;
+  --rstc-green: #10B981;
+  --rstc-amber: #F59E0B;
+  --rstc-violet: #8B5CF6;
+  --rstc-pink: #EC4899;
+  --rstc-red: #EF4444;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-    /* MURA-style fixed background */
+    /* MURA-style fixed background image */
     background-image: url('/hero-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
@@ -94,106 +104,89 @@
   }
 }
 
-/* ── MURA-Style Custom Classes ───────────────────────────── */
+/* ── MURA-Style: Skewed Section Header Banners ─────────── */
 
-/* Skewed section header banners */
 .header-skew {
   position: relative;
-  background-color: #3B82F6;
-  color: white;
-  padding: 0.5rem 1.5rem 0.5rem 2.5rem;
   display: inline-block;
   font-weight: 900;
-  font-size: 1.5rem;
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-  margin-left: -1rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: white;
+  padding: 0.5rem 2rem 0.5rem 1.5rem;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  margin-bottom: 1.5rem;
 }
 
-.header-skew-green {
-  background-color: #10B981;
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
-  margin-left: 0;
-  padding-left: 1.5rem;
-}
+.header-skew-blue   { background-color: var(--rstc-blue); }
+.header-skew-green  { background-color: var(--rstc-green); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%); }
+.header-skew-amber  { background-color: var(--rstc-amber); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%); }
+.header-skew-violet { background-color: var(--rstc-violet); clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%); }
+.header-skew-pink   { background-color: var(--rstc-pink); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%); }
+.header-skew-red    { background-color: var(--rstc-red); }
 
-.header-skew-amber {
-  background-color: #F59E0B;
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
-  margin-left: 0;
-  padding-left: 1.5rem;
-}
+/* ── MURA-Style: Content Cards ─────────────────────────── */
 
-.header-skew-violet {
-  background-color: #8B5CF6;
-}
-
-.header-skew-pink {
-  background-color: #EC4899;
-}
-
-.header-skew-red {
-  background-color: #EF4444;
-}
-
-/* Content card hover effect */
 .content-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .content-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
 }
 
-/* News/item left border accent */
-.news-item {
-  border-left: 4px solid #F59E0B;
-}
+/* ── MURA-Style: Glass Overlay ─────────────────────────── */
 
-/* Fade-in on scroll animation */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hide scrollbar for carousels */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Custom scrollbar for mobile nav */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-/* Glass overlay for readability over background image */
 .glass-overlay {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-/* Hero section */
+/* ── MURA-Style: Hero ──────────────────────────────────── */
+
 .hero-gradient {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+/* ── MURA-Style: Quick Access Tiles ────────────────────── */
+
+.quick-tile {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.quick-tile:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+/* ── MURA-Style: Feed Card Colour Accents ──────────────── */
+
+.feed-card-blue   { border-left: 4px solid var(--rstc-blue); }
+.feed-card-green  { border-left: 4px solid var(--rstc-green); }
+.feed-card-amber  { border-left: 4px solid var(--rstc-amber); }
+.feed-card-violet { border-left: 4px solid var(--rstc-violet); }
+.feed-card-pink   { border-left: 4px solid var(--rstc-pink); }
+
+/* ── Scrollbar Utilities ────────────────────────────────── */
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* ── Selection Colour ───────────────────────────────────── */
+
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+  color: inherit;
 }
