@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=DM+Sans:wght@400;500&display=swap');
+
+  :root {
+    --primary: #2092b8;
+    --primary-40: rgba(32, 146, 184, 0.4);
+    --primary-2: rgba(32, 146, 184, 0.02);
+    --text: #1e2021;
+    --muted: #70777c;
+    --bg: #ffffff;
+  }
+
+  @page {
+    size: 794px 1123px;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 794px;
+    height: 1123px;
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+  }
+
+  .cover {
+    position: relative;
+    width: 794px;
+    height: 1123px;
+  }
+
+  /* Layer 1 - Background grid */
+  .bg-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--primary-2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--primary-2) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Layer 2 - Structure lines */
+  .structure-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  .anchor-line {
+    position: absolute;
+    left: 0.12 * 794px;
+    left: calc(0.12 * 794px);
+    top: calc(0.10 * 1123px);
+    height: calc(0.80 * 1123px);
+    width: 6px;
+    background: var(--primary);
+  }
+
+  .meta-line {
+    position: absolute;
+    left: calc(0.12 * 794px + 30px);
+    top: calc(0.73 * 1123px);
+    width: calc(794px * 0.4);
+    height: 1px;
+    background: var(--primary-40);
+  }
+
+  /* Layer 3 - Content */
+  .content-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  .content-left {
+    position: absolute;
+    left: calc(0.12 * 794px + 30px);
+    top: 0;
+    width: calc(794px * 0.65);
+    height: 100%;
+  }
+
+  .kicker {
+    position: absolute;
+    top: calc(0.15 * 1123px);
+    font-size: 16pt;
+    font-weight: 400;
+    letter-spacing: 3pt;
+    opacity: 0.6;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    position: absolute;
+    top: calc(0.28 * 1123px);
+    font-size: 52pt;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1.15;
+    max-width: calc(794px * 0.6);
+  }
+
+  .summary {
+    position: absolute;
+    top: calc(0.50 * 1123px);
+    font-size: 16pt;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
+    max-width: calc(794px * 0.55);
+  }
+
+  .meta {
+    position: absolute;
+    top: calc(0.76 * 1123px);
+    font-size: 18pt;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 2.0;
+    color: var(--text);
+  }
+
+  .meta-label {
+    font-size: 11pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <!-- Layer 1: Background -->
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Layer 2: Structure -->
+  <div class="structure-layer">
+    <div class="anchor-line"></div>
+    <div class="meta-line"></div>
+  </div>
+
+  <!-- Layer 3: Content -->
+  <div class="content-layer">
+    <div class="content-left">
+      <div class="kicker">WEBSITE REVIEW REPORT</div>
+      <div class="hero-title">Royal Sabah<br>Turf Club</div>
+      <div class="summary">
+        A comprehensive content, code, and UI/UX review of the official Royal Sabah Turf Club website, evaluating aesthetics, technical architecture, accessibility, and search engine optimisation with actionable recommendations.
+      </div>
+      <div class="meta">
+        <div class="meta-label">Prepared by</div>
+        <div>Z.ai Digital Audit</div>
+        <div style="margin-top: 8px;">
+          <div class="meta-label">Date</div>
+          <div>7 June 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
