@@ -50,6 +50,10 @@ test
 prompt
 
 server.log
+# Cloudflare
+.open-next/
+.dev.vars
+
 # Skills directory
 /skills/
 
